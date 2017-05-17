@@ -1,0 +1,7 @@
+dbs/
+*.pid
+build/
+eggs/
+logs/
+project.egg-info/
+setup.py
