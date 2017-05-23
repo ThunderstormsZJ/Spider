@@ -5,6 +5,7 @@ import random
 from user_agents import agents
 from settings import PROXIES
 from spiderman import Spider_Aim
+from twitterspider.ProgressBar import ProgressBar
 import base64
 import time
 import re
@@ -40,15 +41,9 @@ class CheckMiddleware(object):
             print "爬虫运行正常"
             return response
         else:
-            print "遭遇反爬虫,休息5秒"
-            clock = 0
-            sleep_time = 5
-            while (clock < sleep_time):
-                nclock = sleep_time - clock
-                print nclock
-                time.sleep(1)
-                clock += 1
-            print '爬虫重新启动中'
+            print '遭遇反爬虫，爬虫重新启动中'
+            pb = ProgressBar(total=5)
+            pb.progress()
             return request.replace(url=request_url)
 
 

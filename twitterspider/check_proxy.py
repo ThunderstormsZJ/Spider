@@ -2,7 +2,7 @@
 
 import telnetlib
 import requests
-
+from twitterspider.ProgressBar import ProgressBar
 
 def first_check():
     check_ip = '127.0.0.1'
@@ -32,6 +32,7 @@ def second_check(check_ip_port_http, check_ip_port_https):
     except Exception:
         print "扣押,代理不可用"
 
-
 if __name__ == '__main__':
-    first_check()
+    pb = ProgressBar(total=5)
+    pb.progress()
+    # first_check()
